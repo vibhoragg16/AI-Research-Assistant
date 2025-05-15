@@ -25,6 +25,8 @@ langchain_groq
 langchain-huggingface
 streamlit
 
+protobuf==3.20.3
+
 # Keep these optional - add back if needed
 # pdfplumber>=0.10.0
 # unstructured>=0.10.30
