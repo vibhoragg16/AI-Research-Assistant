@@ -16,6 +16,15 @@ pypdf>=3.15.1
 # For arxiv papers
 arxiv>=1.4.8
 
+langchain-text-splitters
+pydantic
+numpy
+langgraph
+chromadb
+langchain_groq
+langchain_huggingface
+streamlit
+
 # Keep these optional - add back if needed
 # pdfplumber>=0.10.0
 # unstructured>=0.10.30
