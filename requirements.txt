@@ -25,6 +25,7 @@ langchain_groq
 langchain-huggingface
 streamlit
 
+pysqlite3-binary
 protobuf==3.20.3
 
 # Keep these optional - add back if needed
