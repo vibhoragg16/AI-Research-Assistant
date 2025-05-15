@@ -22,7 +22,7 @@ numpy
 langgraph
 chromadb
 langchain_groq
-langchain_huggingface
+langchain-huggingface
 streamlit
 
 # Keep these optional - add back if needed
