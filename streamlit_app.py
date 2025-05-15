@@ -1,3 +1,8 @@
+
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 import asyncio
 import nest_asyncio
@@ -6,6 +11,8 @@ import tempfile
 import sys
 from threading import Thread
 from typing import List, Dict, Any, Optional
+
+
 
 # Apply nest_asyncio at the start
 nest_asyncio.apply()
