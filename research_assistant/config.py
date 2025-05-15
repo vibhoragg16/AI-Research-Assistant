@@ -8,6 +8,7 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 HF_TOKEN = os.getenv("HF_TOKEN")
 DEFAULT_MODEL= "llama-3.3-70b-versatile"
 
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 200
@@ -18,4 +19,4 @@ def init_environment():
     os.environ["GROQ_API_KEY"] = GROQ_API_KEY
     os.environ["HF_TOKEN"] = HF_TOKEN
     
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+    
