@@ -1,3 +1,7 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 
 import os 
 from dotenv import load_dotenv
@@ -18,7 +22,4 @@ def init_environment():
     os.environ["GROQ_API_KEY"] = GROQ_API_KEY
     os.environ["HF_TOKEN"] = HF_TOKEN
     
-    __import__('pysqlite3')
-    import sys
-    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
+    
