@@ -13,7 +13,7 @@ class ResearchAssistant:
     def __init__(self):
         self.doc_processor = DocumentProcessor()
         self.tools = AgentTools(self.doc_processor)
-        self.graph = setup_graph(self.tools)
+        # self.graph = setup_graph(self.tools)
     
     def process_paper(self, file_path_or_id):
         """Process a paper from file or arXiv ID"""
@@ -29,23 +29,26 @@ class ResearchAssistant:
     async def run(self, query_text, query_type, document_ids=None, options=None):
         """Run the research assistant on a query"""
         # Create the query object
-        query = AgentQuery(
-            query_type=query_type, 
-            query_text=query_text, 
-            document_ids=document_ids,
-            options=options
-        )
+        query = {
+            'query_type': query_type,
+            'query_text': query_text,
+            'document_ids': document_ids,
+            'options': options
+        }
         
         # Create initial state
         state = AgentState(
             query=query,
-            messages=[HumanMessage(content=query_text)]
+            messages=[{'type': 'human', 'content': query_text}]
         )
         
-        # Run the graph
-        result = await self.graph.ainvoke(state)
-        
-        return result
+        # Direct function call workflow
+        from .graph import nodes
+        state = nodes.process_documents(state, self.tools)["state"]
+        state = nodes.retrieve_information(state, self.tools)["state"]
+        state = nodes.generate_summary(state, self.tools)["state"]
+        state = nodes.provide_final_answer(state, self.tools)["state"]
+        return state
 
 
 # Example usage
