@@ -13,14 +13,9 @@ import sys
 import subprocess
 
 # Install pysqlite3-binary if not present
-try:
-    import pysqlite3
-    sys.modules['sqlite3'] = pysqlite3
-except ImportError:
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "pysqlite3-binary"])
-    import pysqlite3
-    sys.modules['sqlite3'] = pysqlite3
-
+import pysqlite3
+import sys
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 # Now import chromadb
 import chromadb
 
