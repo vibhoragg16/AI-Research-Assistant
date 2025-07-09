@@ -8,6 +8,21 @@ from research_assistant.config import init_environment
 import time
 import tempfile
 from langchain_core.messages import HumanMessage
+# SQLite compatibility fix for Streamlit Cloud
+import sys
+import subprocess
+
+# Install pysqlite3-binary if not present
+try:
+    import pysqlite3
+    sys.modules['sqlite3'] = pysqlite3
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "pysqlite3-binary"])
+    import pysqlite3
+    sys.modules['sqlite3'] = pysqlite3
+
+# Now import chromadb
+import chromadb
 
 # Apply nest_asyncio to allow nested event loops
 nest_asyncio.apply()
