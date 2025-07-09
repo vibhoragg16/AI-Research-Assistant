@@ -28,6 +28,8 @@ streamlit
 pysqlite3-binary
 protobuf==3.20.3
 
+sentence-transformers
+
 # Keep these optional - add back if needed
 # pdfplumber>=0.10.0
 # unstructured>=0.10.30
