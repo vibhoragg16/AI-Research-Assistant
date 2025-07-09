@@ -20,15 +20,18 @@ langchain-text-splitters
 pydantic
 numpy
 langgraph
-chromadb
+#chromadb
 langchain_groq
 langchain-huggingface
 streamlit
 
-pysqlite3-binary
+#pysqlite3-binary
 protobuf==3.20.3
 
 sentence-transformers
+
+pysqlite3-binary>=0.5.0
+chromadb>=0.4.0
 
 # Keep these optional - add back if needed
 # pdfplumber>=0.10.0
