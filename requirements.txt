@@ -30,8 +30,8 @@ protobuf==3.20.3
 
 sentence-transformers
 
-pysqlite3-binary>=0.5.0
-chromadb>=0.4.0
+pysqlite3-binary
+chromadb
 
 # Keep these optional - add back if needed
 # pdfplumber>=0.10.0

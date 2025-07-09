@@ -13,11 +13,6 @@ import sys
 import subprocess
 
 # Install pysqlite3-binary if not present
-import pysqlite3
-import sys
-sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
-# Now import chromadb
-import chromadb
 
 # Apply nest_asyncio to allow nested event loops
 nest_asyncio.apply()
