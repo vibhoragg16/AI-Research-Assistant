@@ -121,7 +121,7 @@ def route(state: AgentState, tools: AgentTools) -> Dict[str, Any]:
     
     print("DEBUG (router): state.documents =", state.documents)
     
-    messages = state.messages.copy()
+    messages = list(state.messages)
     
     # Add a message about the current state
     current_state = {

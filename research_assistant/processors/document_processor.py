@@ -35,7 +35,8 @@ class DocumentProcessor:
             print("DEBUG: Creating Chroma vector store")
             self.vectorstore = Chroma(
                 collection_name="research_papers",
-                embedding_function=self.embeddings
+                embedding_function=self.embeddings,
+                persist_directory="chroma_db"
             )
             print("DEBUG: Chroma vector store created successfully")
             
