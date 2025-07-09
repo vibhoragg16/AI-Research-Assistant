@@ -11,6 +11,8 @@ from langchain_core.messages import HumanMessage
 # SQLite compatibility fix for Streamlit Cloud
 import sys
 import subprocess
+import pysqlite3
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
 
 # Install pysqlite3-binary if not present
 
